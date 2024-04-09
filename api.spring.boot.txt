@@ -1,0 +1,25 @@
+@RestController
+@ControllerAdvice
+    Custom exception y lanzarlas
+
+@RequestMaping
+
+@GetMapping
+    /pizzas/1
+    /pizzas/{id}
+    @PathVariable
+@Putmapping
+    @RequestBody
+@PostMapping
+    @RequestBody
+@DeleteMapping
+@RequestHeader
+
+1. Separar cada controlador en un archivo
+   @RequestMaping("/v1/pizzas")
+2. Simplifica la resolucion nombre
+
+    -request
+    -response
+    controlador
+        -action

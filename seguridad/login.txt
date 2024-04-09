@@ -1,0 +1,56 @@
+1. Enviar un post a mi servidor
+    user
+    pwd
+2. ¿Cual es la principal caracteristica del protocolo http/https?    
+    Que no tiene estado
+3. ¿Que puede devolver mi servidor?
+    3.1 Token
+    3.2 Cookie
+Cookie  
+    document.cookie puede leer las cookies del cliente
+    excepto
+        Set-Cookie: session=12346578997888
+        Secure(https) y HttpOnly(no es accesible por document.cookie)
+Token(JWT)
+    const parts = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.
+    eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.
+    SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c".split('.')
+
+    const playload = atob(parts[1])
+
+¿Donde guardo el token?
+    
+    LocalStorage
+        1. Cada acceso al local storage precisa de serializacion y deserialiacion
+        2. El acceso al localStorage no es asincrono
+        3. No puedo ejecutar el LocalStorage desde los worker
+
+    IndexDb
+        1. No necesito serializar/deserializar
+        2. Todos los accesos son asincronos
+        3. Puede trabajar tanto en el hilo principal y en los worker
+
+https://github.com/jakearchibald/idb-keyval
+
+
+¿Es seguro en IndexDb o LocalStorage?
+
+Proteger 
+
+Content-Security-Policy->(Xss)
+https://www.w3.org/TR/CSP3/
+
+¿Como se envia el token al servidor?
+    headers:{
+        authorization:Bearer <Token>
+        autorization:Basic
+    } 
+¿Cuanto debe de durar el token?
+    maximo 3600s=1hora
+    
+    /refresh
+
+    {
+        token:aaaa.zzzz.yyyy
+        refresh:132345678999788
+    }

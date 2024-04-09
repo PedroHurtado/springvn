@@ -174,3 +174,15 @@ encodeURIComponent(`{
 
 
 Que diferencia hay entre PUT Y PATCH
+
+idenpotenetes
+    put,get,delete
+no idempotenetes
+    post,patch
+
+
+
+{
+    name:'pedro hurtado'
+    oldname:'pedro'
+}
